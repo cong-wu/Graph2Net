@@ -1,0 +1,26 @@
+# feeder
+feeder: feeders.feeder.Feeder
+test_feeder_args:
+  data_path: ./data/kinetics_min_skeleton/val_data_joint.npy
+  label_path: ./data/kinetics_min_skeleton/val_label.pkl
+  debug: False
+
+# model
+model: model.graph2net.Model
+model_args:
+  num_class: 400
+  num_person: 2
+  num_point: 18
+  graph: graph.kinetics.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+# test 
+phase: test
+device: [0,1]
+test_batch_size: 256
+weights: ./save_models/ki_min_joint.pt
+
+work_dir: ./test_work_dir/kinetics_min_skeleton/test_joint
+model_saved_name: ./test_runs/kinetics_min_skeleton_test_joint
+save_score: True

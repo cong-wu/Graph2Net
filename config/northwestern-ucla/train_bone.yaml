@@ -1,0 +1,39 @@
+work_dir: ./work_dir/nw_ucla/joint
+model_saved_name: ./runs/nw_ucla_joint
+# feeder
+feeder: feeders.feeder_nw_ucla_bone.Feeder
+train_feeder_args:
+  data_path: not_use
+  label_path: train
+  debug: False
+  random_choose: True
+  random_shift: False
+  random_move: False
+  window_size: 52
+  normalization: False
+ 
+test_feeder_args:
+  data_path: not_use
+  label_path: val
+# model
+model: model.graph2net.Model
+model_args:
+  num_class: 28
+  num_point: 20
+  num_person: 1
+  graph: graph.nw_ucla.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+#optim
+weight_decay: 0.0001
+base_lr: 0.1
+step: [60, 80, 100]
+warm_up_epoch: 15
+
+# training
+device: [0]
+batch_size: 16
+test_batch_size: 64
+num_epoch: 140
+nesterov: True

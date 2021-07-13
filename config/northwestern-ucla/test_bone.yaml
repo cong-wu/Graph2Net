@@ -1,0 +1,27 @@
+# feeder
+feeder: feeders.feeder_nw_ucla_bone.Feeder
+test_feeder_args:
+  data_path: not_use
+  label_path: val
+  debug: False
+
+# model
+model: model.graph2net.Model
+model_args:
+  num_class: 28
+  num_point: 20
+  num_person: 1
+  graph: graph.nw_ucla.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+
+# test 
+phase: test
+device: [0]
+test_batch_size: 128
+weights: ./save_models/nw_ucla_bone.pt
+
+work_dir: ./test_work_dir/nw_ucla/test_bone
+model_saved_name: ./runs/nw_ucla_test_bone
+save_score: True

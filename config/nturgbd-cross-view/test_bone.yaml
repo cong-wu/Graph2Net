@@ -1,0 +1,26 @@
+# feeder
+feeder: feeders.feeder.Feeder
+test_feeder_args:
+  data_path: ./data/ntu/xview/val_data_bone.npy
+  label_path: ./data/ntu/xview/val_label.pkl
+  debug: False
+
+# model
+model: model.graph2net.Model
+model_args:
+  num_class: 60
+  num_point: 25
+  num_person: 2
+  graph: graph.ntu_rgb_d.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+# test 
+phase: test
+device: [0,1]
+test_batch_size: 256
+weights: ./save_models/ntu_cv_bone.pt
+
+work_dir: ./test_work_dir/ntu/xview/test_bone
+model_saved_name: ./test_runs/ntu_cv_test_bone
+save_score: True

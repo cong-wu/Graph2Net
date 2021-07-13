@@ -1,0 +1,26 @@
+# feeder
+feeder: feeders.feeder.Feeder
+test_feeder_args:
+  data_path: ./data/ntu120/xset/val_data_joint.npy
+  label_path: ./data/ntu120/xset/val_label.pkl
+  debug: False
+
+# model
+model: model.graph2net.Model
+model_args:
+  num_class: 120
+  num_point: 25
+  num_person: 2
+  graph: graph.ntu_rgb_d.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+# test 
+phase: test
+device: [0,1]
+test_batch_size: 256
+weights: ./save_models/ntu120_ce_joint.pt
+
+work_dir: ./test_work_dir/ntu120/xset/test_joint
+model_saved_name: ./test_runs/ntu120_ce_test_joint
+save_score: True
