@@ -61,18 +61,21 @@ We provided several examples to train Graph2Net with this repo:
 
 
     `python main.py --config ./config/nturgbd-cross-view/train_joint.yaml`
+    
     `python main.py --config ./config/nturgbd-cross-view/train_bone.yaml`
 
 - To train on Mini-Kinetics-Skeleton, you can run
 
 
     `python main.py --config ./config/kinetics-skeleton/train_joint.yaml`
+    
     `python main.py --config ./config/kinetics-skeleton/train_bone.yaml`
 
 - To train on Northwestern-UCLA, you can run
 
 
     `python main_nw_ucla.py --config ./config/northwestern-ucla/train_joint.yaml`
+    
     `python main_nw_ucla.py --config ./config/northwestern-ucla/train_bone.yaml`
 
 
@@ -84,18 +87,21 @@ We also provided several examples to test Graph2Net with this repo:
 
 
     `python main.py --config ./config/nturgbd-cross-view/test_joint.yaml`
+    
     `python main.py --config ./config/nturgbd-cross-view/test_bone.yaml`
 
 - To train on Mini-Kinetics-Skeleton, you can run
 
 
     `python main.py --config ./config/kinetics-skeleton/test_joint.yaml`
+    
     `python main.py --config ./config/kinetics-skeleton/test_bone.yaml`
 
 - To train on Northwestern-UCLA, you can run
 
 
     `python main_nw_ucla.py --config ./config/northwestern-ucla/test_joint.yaml`
+    
     `python main_nw_ucla.py --config ./config/northwestern-ucla/test_bone.yaml`
 
 The corresponding result of the above command is as follows,
