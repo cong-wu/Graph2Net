@@ -5,9 +5,9 @@ Also, on the basis of this method, we won the first place in [Multi-Modal Video 
 
 
 - [Prerequisite](#Prerequisite)
-- [Data Preparation](#Data Preparation)
-- [Training & Testing](#Training  Testing)
-- [Two-stream Ensemble](#Two-stream Ensemble)
+- [Data](#Data)
+- [Training&Testing](#Training&Testing)
+- [Ensemble](#Ensemble)
 - [Citation](#Citation)
 - [Acknowledgement](#Acknowledgement)
 - [Contact](#Contact)
@@ -22,11 +22,11 @@ Also, on the basis of this method, we won the first place in [Multi-Modal Video 
 - Other Python libraries can be installed with `pip install -r requirements.txt`.
 
  
-<a name="Data Preparation"></a>
+<a name="Data"></a>
 
-# Data Preparation
+# Data
 
-##Generate the Joint data 
+## Generate the Joint data 
 
 **Ntu-RGB+D 60 & 120**
 
@@ -45,13 +45,13 @@ The preprocess of Northwestern-UCLA dataset is borrow from [kchengiva/Shift-GCN]
 
 - Download the raw data of [Northwestern-UCLA](https://www.dropbox.com/s/10pcm4pksjy6mkq/all_sqe.zip?dl=0). Put Northwestern-UCLA data under the directory `./data/nw_ucla_raw/`.
 
-##Generate the Bone data 
+## Generate the Bone data 
 - Generate the bone data with `python data_gen/gen_bone_data.py`.
 
 
-<a name="Training Testing"></a>
+<a name="Training&Testing"></a>
 
-# Training & Testing
+# Training&Testing
 
 ## Training 
 
@@ -60,20 +60,20 @@ We provided several examples to train Graph2Net with this repo:
 - To train on NTU-RGB+D 60 under Cross-View evaluation, you can run
 
 
-    python main.py --config ./config/nturgbd-cross-view/train_joint.yaml
-    python main.py --config ./config/nturgbd-cross-view/train_bone.yaml
+    `python main.py --config ./config/nturgbd-cross-view/train_joint.yaml`
+    `python main.py --config ./config/nturgbd-cross-view/train_bone.yaml`
 
 - To train on Mini-Kinetics-Skeleton, you can run
 
 
-    python main.py --config ./config/kinetics-skeleton/train_joint.yaml
-    python main.py --config ./config/kinetics-skeleton/train_bone.yaml
+    `python main.py --config ./config/kinetics-skeleton/train_joint.yaml`
+    `python main.py --config ./config/kinetics-skeleton/train_bone.yaml`
 
 - To train on Northwestern-UCLA, you can run
 
 
-    python main_nw_ucla.py --config ./config/northwestern-ucla/train_joint.yaml
-    python main_nw_ucla.py --config ./config/northwestern-ucla/train_bone.yaml
+    `python main_nw_ucla.py --config ./config/northwestern-ucla/train_joint.yaml`
+    `python main_nw_ucla.py --config ./config/northwestern-ucla/train_bone.yaml`
 
 
 ## Testing 
@@ -83,20 +83,20 @@ We also provided several examples to test Graph2Net with this repo:
 - To train on NTU-RGB+D 60 under Cross-View evaluation, you can run
 
 
-    python main.py --config ./config/nturgbd-cross-view/test_joint.yaml
-    python main.py --config ./config/nturgbd-cross-view/test_bone.yaml
+    `python main.py --config ./config/nturgbd-cross-view/test_joint.yaml`
+    `python main.py --config ./config/nturgbd-cross-view/test_bone.yaml`
 
 - To train on Mini-Kinetics-Skeleton, you can run
 
 
-    python main.py --config ./config/kinetics-skeleton/test_joint.yaml
-    python main.py --config ./config/kinetics-skeleton/test_bone.yaml
+    `python main.py --config ./config/kinetics-skeleton/test_joint.yaml`
+    `python main.py --config ./config/kinetics-skeleton/test_bone.yaml`
 
 - To train on Northwestern-UCLA, you can run
 
 
-    python main_nw_ucla.py --config ./config/northwestern-ucla/test_joint.yaml
-    python main_nw_ucla.py --config ./config/northwestern-ucla/test_bone.yaml
+    `python main_nw_ucla.py --config ./config/northwestern-ucla/test_joint.yaml`
+    `python main_nw_ucla.py --config ./config/northwestern-ucla/test_bone.yaml`
 
 The corresponding result of the above command is as follows,
 
@@ -109,24 +109,24 @@ In the `save_models` folder, we also provide the trained model parameters.
 
 Please refer to the `config` folder for other training and testing commands. You can also freely change the train or test config file according to your needs. 
 
-<a name="Two-stream Ensemble"></a>
+<a name="Ensemble"></a>
 
-# Two-stream Ensemble
+# Ensemble
 
 To ensemble the results of joints and bones, run the test command we provided to generate the scores of the softmax layer.
 Then combine the generated scores with:
 
 - NTU-RGB+D 60 
 
-    python ensemble.py --datasets ntu/xview
+    `python ensemble.py --datasets ntu/xview`
 
 - Mini-Kinetics-Skeleton
 
-    python ensemble.py --datasets kinetics_min_skeleton
+    `python ensemble.py --datasets kinetics_min_skeleton`
 
 - Northwestern-UCLA
 
-    python ensemble_nw_ucla.py
+    `python ensemble_nw_ucla.py`
 
 The corresponding result of the above command is as follows,
 
