@@ -83,21 +83,21 @@ We provided several examples to train Graph2Net with this repo:
 
 We also provided several examples to test Graph2Net with this repo:
 
-- To train on NTU-RGB+D 60 under Cross-View evaluation, you can run
+- To test on NTU-RGB+D 60 under Cross-View evaluation, you can run
 
 
     `python main.py --config ./config/nturgbd-cross-view/test_joint.yaml`
     
     `python main.py --config ./config/nturgbd-cross-view/test_bone.yaml`
 
-- To train on Mini-Kinetics-Skeleton, you can run
+- To test on Mini-Kinetics-Skeleton, you can run
 
 
     `python main.py --config ./config/kinetics-skeleton/test_joint.yaml`
     
     `python main.py --config ./config/kinetics-skeleton/test_bone.yaml`
 
-- To train on Northwestern-UCLA, you can run
+- To test on Northwestern-UCLA, you can run
 
 
     `python main_nw_ucla.py --config ./config/northwestern-ucla/test_joint.yaml`
